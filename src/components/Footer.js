@@ -5,7 +5,7 @@ render(){
     return( 
         <div>
            <p>
-           NaimAlOmari  </p> 
+           NaimAlOmari . </p> 
         </div> 
     );
 }
