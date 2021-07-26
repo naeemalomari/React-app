@@ -26,7 +26,9 @@ class App extends React.Component {
 </Col>
 </Row> 
 </Container>
+
     );
   }
 }
+
 export default App;

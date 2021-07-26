@@ -1,4 +1,5 @@
 import React from 'react';
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
@@ -20,6 +21,7 @@ class HornedBeasts extends React.Component {
         return (
             <Card style={{ width: '18rem', height :"30rem" }}
                 onClick={this.increaseVote}>
+
 
                 <Card.Img variant="top" src={this.props.image_url} />
                 <Card.Body>
