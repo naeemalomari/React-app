@@ -15,6 +15,8 @@ class HornedBeasts extends React.Component {
         this.setState({
             numOfHornedBeast: this.state.numOfHornedBeast + 1
         });
+
+        this.props.function();
     };
     render() {
         return (

@@ -7,10 +7,21 @@ import Container from "react-bootstrap/Container";
 import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import './App.css';
-
+import SelectedBeast from './components/SelectedBeast';
 
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    }
+}
+viewFunction = () => {
+    this.setState({
+
+    })
+}
   render() {
     return (
       <Container fluid align="center">
