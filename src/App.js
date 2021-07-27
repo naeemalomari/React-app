@@ -8,24 +8,26 @@ import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import './App.css';
 
+
+
 class App extends React.Component {
   render() {
-    return(
-<Container fluid align="center">
-  <Row>
-    <Col> 
-<Header />
-</Col>
-</Row>
-<Row> 
-<Main />
-</Row>
-<Row>
-  <Col>
-<Footer /> 
-</Col>
-</Row> 
-</Container>
+    return (
+      <Container fluid align="center">
+        <Row>
+          <Col>
+            <Header />
+          </Col>
+        </Row>
+        <Row>
+          <Main />
+        </Row>
+        <Row>
+          <Col>
+            <Footer />
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
