@@ -1,21 +1,24 @@
 import React from 'react';
 import HornedBeasts from './HornedBeasts';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Col } from "react-bootstrap";
+import { Col, Container, NavItem, Row } from "react-bootstrap";
 import Data from './data.json';
-import SelectedBeast from './SelectedBeast';
+// import SelectedBeast from './SelectedBeast';
 class Main extends React.Component {
 
     render() {
+            
         const display = Data.map(element => {
             return (
-                <Col lg={2}>
+
+                <Col lg={4}>
                     <HornedBeasts
                         className="card"
+                        key={element.title.toString()}
                         title={element.title}
                         image_url={element.image_url}
                         description={element.description}
-                        function={element.this.viewFunction}
+                        handler={this.props.handler}
                     />
                 </Col>
             );
@@ -26,4 +29,5 @@ class Main extends React.Component {
             </div>);
     }
 }
+
 export default Main;

@@ -15,9 +15,10 @@ class HornedBeasts extends React.Component {
         this.setState({
             numOfHornedBeast: this.state.numOfHornedBeast + 1
         });
-
-        this.props.function();
     };
+    passData = ()=> {
+        this.props.handler(this.props.title,this.props.image_url,this.props.description,true)
+    }
     render() {
         return (
             <Card style={{ width: '18rem', height: "30rem" }}
