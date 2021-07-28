@@ -20,7 +20,8 @@ class HornedBeasts extends React.Component {
     this.props.modalData(
       this.props.title,
       this.props.image_url,
-      this.props.description
+      this.props.description,
+      this.props.horns
     );
   };
 

@@ -6,9 +6,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
-import "./App.css";
+// import "./App.css";
 import DataArr from "./components/data.json";
 import SelectedBeast from "./components/SelectedBeast";
+import FormInfo from "./components/formInfo";
+import { Form } from "react-bootstrap";
 
 class App extends React.Component {
   constructor(props) {
@@ -18,14 +20,26 @@ class App extends React.Component {
       title: '',
       url: '',
       description: '',
+      horns:'',
+      data:DataArr,
     };
   }
 
-  modalData = (title, url, description) => {
+  numOfHorns=(numberHorns)=>{
+ let newArray=DataArr.filter((element) => {
+   if(element.horns === Number(numberHorns)){
+     return element;
+   }else {return element} });
+ this.setState({data:newArray});
+  }
+
+
+  modalData = (title, image_url, description,horns) => {
     this.setState({
       title: title,
-      url: url,
+      image_url: image_url,
       description: description,
+      horns:horns
     });
   };
 
@@ -47,6 +61,7 @@ class App extends React.Component {
         <Row>
           <Col>
             <Header />
+            <Form handleSubmission={this.dataHandle} />
           </Col>
         </Row>
         <Row>
@@ -54,11 +69,12 @@ class App extends React.Component {
             show={this.state.show}
             hide={this.stateHandleHide}
             title={this.state.title}
-            url={this.state.url}
-            desc={this.state.description}
+            image_url={this.state.image_url}
+            description={this.state.description}
+            // horns={this.state.horns}
           />
           <Main
-            data={DataArr}
+            data={this.state.data}
             stateUpdate={this.stateHandleShow}
             modalData={this.modalData}
           />
@@ -72,5 +88,6 @@ class App extends React.Component {
     );
   }
 }
+
 
 export default App;

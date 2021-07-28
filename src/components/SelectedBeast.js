@@ -11,10 +11,11 @@ class SelectedBeast extends PureComponent {
         <Modal.Body>
           <img
             style={{ width: "18rem" }}
-            src={this.props.url}
+            src={this.props.image_url}
             alt={this.props.title}
           />
-          <p>{this.props.desc}</p>
+          <p>{this.props.description}</p>
+          <p> {this.props.horns} </p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={this.props.hide}>
