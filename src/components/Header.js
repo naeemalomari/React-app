@@ -1,4 +1,3 @@
-
 import React from "react";
 import FormInfo from "./formInfo";
 
@@ -13,6 +12,7 @@ class Header extends React.Component {
       </div>
     );
   }
+
 }
 
 export default Header;

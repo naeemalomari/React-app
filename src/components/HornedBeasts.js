@@ -1,4 +1,5 @@
 import React from "react";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
@@ -40,6 +41,7 @@ class HornedBeasts extends React.Component {
       </Card>
     );
   }
+
 }
 
 export default HornedBeasts;
