@@ -1,33 +1,35 @@
-import React from 'react';
-import HornedBeasts from './HornedBeasts';
+
+import React from "react";
+import HornedBeasts from "./HornedBeasts";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Col, Container, NavItem, Row } from "react-bootstrap";
-import Data from './data.json';
-// import SelectedBeast from './SelectedBeast';
+import { Col } from "react-bootstrap";
+
 class Main extends React.Component {
+  getData() {
+    let dataArr = JSON.parse(JSON.stringify(this.props.data));
+    return dataArr;
+  }
 
-    render() {
-            
-        const display = Data.map(element => {
-            return (
-
-                <Col lg={4}>
-                    <HornedBeasts
-                        className="card"
-                        key={element.title.toString()}
-                        title={element.title}
-                        image_url={element.image_url}
-                        description={element.description}
-                        handler={this.props.handler}
-                    />
-                </Col>
-            );
-        });
-        return (
-            <div>
-                {display}
-            </div>);
-    }
+  render() {
+    return (
+      <>
+        {this.getData().map((element) => {
+          return (
+            <Col lg={3}>
+              <HornedBeasts
+                className="card"
+                title={element.title}
+                image_url={element.image_url}
+                description={element.description}
+                showModal={this.props.stateUpdate}
+                modalData={this.props.modalData}
+              />
+            </Col>
+          );
+        })}
+      </>
+    );
+  }
 }
 
 export default Main;

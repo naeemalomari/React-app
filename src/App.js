@@ -1,57 +1,48 @@
-import React from 'react';
-import Main from './components/Main';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import React from "react";
+import Main from "./components/Main";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
-import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap";
-import './App.css';
-import SelectedBeast from './components/SelectedBeast';
-import Data from './components/data.json';
+import { Col } from "react-bootstrap";
+import "./App.css";
+import DataArr from "./components/data.json";
+import SelectedBeast from "./components/SelectedBeast";
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
+      show: false,
       title: '',
-      imageUrl: '',
+      url: '',
       description: '',
-      modalState: false,
     };
   }
 
-
-  handler = (title, image_url, description, modalState) => {
-      this.setState({
-        title: title,
-        image_url: image_url,
-        description: description,
-        modalState: modalState,
-      });
+  modalData = (title, url, description) => {
+    this.setState({
+      title: title,
+      url: url,
+      description: description,
+    });
   };
 
-  handelModalShow = modalState =>{
-      this.setState({
-        modalState: modalState
-      });
-  }
+  stateHandleShow = () => {
+    this.setState({
+      show: true,
+    });
+  };
+
+  stateHandleHide = () => {
+    this.setState({
+      show: false,
+    });
+  };
 
   render() {
     return (
-      <>
-       <SelectedBeast 
-
-       title={this.state.title}
-       imageUrl={this.state.imageUrl}
-       description={this.state.description}
-       showModal={this.state.modalState}
-       hideModal={this.handelModalShow}
-
-      
-      
-      
-      />
       <Container fluid align="center">
         <Row>
           <Col>
@@ -59,9 +50,18 @@ class App extends React.Component {
           </Col>
         </Row>
         <Row>
+          <SelectedBeast
+            show={this.state.show}
+            hide={this.stateHandleHide}
+            title={this.state.title}
+            url={this.state.url}
+            desc={this.state.description}
+          />
           <Main
-          beastlist={Data}
-          handler={this.handler} />
+            data={DataArr}
+            stateUpdate={this.stateHandleShow}
+            modalData={this.modalData}
+          />
         </Row>
         <Row>
           <Col>
@@ -69,8 +69,8 @@ class App extends React.Component {
           </Col>
         </Row>
       </Container>
-        </>
     );
   }
 }
+
 export default App;
